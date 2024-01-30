@@ -6,10 +6,7 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      // add extra themes here
-    },
+    extend: {},
   },
-  // adds mui or daisyui plugins here
   plugins: [],
 };

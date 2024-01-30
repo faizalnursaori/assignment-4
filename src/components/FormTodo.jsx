@@ -2,7 +2,8 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { TodoForm } from "./TodoForm";
+import { TodoInput } from "./TodoInput";
+import toast from "react-hot-toast";
 
 export const FormTodo = () => {
     const router = useRouter();
@@ -10,8 +11,10 @@ export const FormTodo = () => {
     const [date, setDate] = useState("");
     const [time, setTime] = useState("");
     const [todos, setTodos] = useState([]);
+    const [loading, setLoading] = useState(false)
 
     async function handleAddTodos() {
+        setLoading(true)
         const res = await fetch("https://v1.appbackend.io/v1/rows/o9TtrvRNlt4N", {
             method: "POST",
             headers: {
@@ -26,6 +29,8 @@ export const FormTodo = () => {
 
         setTodos([...todos, newTodo]);
         router.push("/todo-list");
+        setLoading(false)
+        toast.success("Berhasil dibuat!")
 
     }
 
@@ -34,7 +39,7 @@ export const FormTodo = () => {
         <main className="flex flex-col items-center justify-center h-screen bg-gray-200">
             <h1>Todo List.</h1>
             <div className="bg-white p-10 rounded-lg shadow-lg">
-                <TodoForm
+                <TodoInput
                     todo={todo}
                     date={date}
                     time={time}

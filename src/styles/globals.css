@@ -9,6 +9,6 @@
   }
 
   input {
-    @apply flex-grow border border-gray-300 p-2 rounded-l-lg focus:outline-none
+    @apply flex-grow border border-gray-300 p-2 focus:outline-none
   }
 }
