@@ -1,9 +1,18 @@
-import Image from "next/image";
+import { Todolist } from "@/components/Todolist";
+import { FormTodo } from "@/components/FormTodo";
 
-export default function Home() {
+async function getData() {
+  const res = await fetch("https://v1.appbackend.io/v1/rows/o9TtrvRNlt4N");
+  const data = await res.json();
+  return data;
+}
+
+export default async function Home() {
+  const { data } = await getData();
   return (
     <main>
-      Hello World
+      <Todolist data={data} />
+      <FormTodo />
     </main>
   );
 }

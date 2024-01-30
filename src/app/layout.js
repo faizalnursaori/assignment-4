@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
-import { Header } from "@/components/Header";
+import NavLink from "@/components/NavLink";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,7 +13,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />
+        <nav className="p-4 border-b-[1px] border-b-gray-600">
+          <ul className="text-lg space-x-4">
+            <NavLink href="/">Home</NavLink>
+            <NavLink href="/todo-list">TodoLists</NavLink>
+          </ul>
+        </nav>
+
         {children}
       </body>
     </html>

@@ -3,7 +3,12 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply bg-slate-100 tracking-tight
+
+  h1 {
+    @apply text-4xl font-bold mb-4
+  }
+
+  input {
+    @apply flex-grow border border-gray-300 p-2 rounded-l-lg focus:outline-none
   }
 }
